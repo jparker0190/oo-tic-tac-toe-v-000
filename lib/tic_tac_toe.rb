@@ -24,7 +24,7 @@ class TicTacToe
     @board[location] != " " && @board[location] != ""
   end
   def valid_move?(index)
-    index.between?(0,8) && !position_taken?(board, index)
+    index.between?(0,8) && !position_taken?(@board, index)
   end
   def turn_count
       @board.count{|token| token == "X" || token == "O"}
