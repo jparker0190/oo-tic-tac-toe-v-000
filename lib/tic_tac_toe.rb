@@ -15,7 +15,7 @@ class TicTacToe
   ]
 
   def display_board(board)
-    board = [" "," "," "," "," "," "," "," "," ",] 
+    board = [" "," "," "," "," "," "," "," "," ",]
   end
 
   def input_to_index(user_input)
