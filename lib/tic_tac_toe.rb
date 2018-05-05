@@ -57,31 +57,31 @@ end
     end
   end
 
-  def full?(board)
-    !board.any? { |x| x == " " }
+  def full?
+    !@board.any? { |x| x == " " }
   end
 
-  def draw?(board)
-    !(won?(board)) && (full?(board))
+  def draw?
+    !(won?(@board)) && (full?(@board))
   end
-  def over?(board)
-    if full?(board) || won?(board) || draw?(board)
+  def over?
+    if full?(@board) || won?(@board) || draw?(@board)
       return true
     else
       return false
     end
   end
 
-  def winner(board)
-    if winning_combo = won?(board)
-      board[winning_combo.first]
+  def winner
+    if winning_combo = won?(@board)
+      @board[winning_combo.first]
     else
       return nil
     end
   end
   def play
     while over? == false
-      turn(board)
+      turn
     end
     if won?
       puts "Congratulations #{winner}!"
