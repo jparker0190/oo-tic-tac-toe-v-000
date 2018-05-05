@@ -13,9 +13,9 @@ class TicTacToe
     puts"-----------"
     puts" #{board[6]} | #{board[7]} | #{board[8]} "
   end
-  
+
   def input_to_index(user_input)
-    user_input.to_i - 1 
+    user_input.to_i - 1
   end
   def move(board, index, current_player)
     board[index] = current_player
@@ -26,7 +26,7 @@ class TicTacToe
   def valid_move?(board, index)
     index.between?(0,8) && !position_taken?(board, index)
   end
-  
+
   def turn
       display_board
       puts "Please enter 1-9:"
@@ -37,8 +37,8 @@ class TicTacToe
       move(input, current_player)
       display_board
     end
-  
-  
+
+
   def turn(board)
     puts"Please enter 1-9:"
     input = gets.strip
@@ -50,10 +50,10 @@ class TicTacToe
       turn(board)
     end
   end
-  
+
   def current_player(board)
     num = turn_count(board)
-    if num % 2 == 0 
+    if num % 2 == 0
       return "X"
     else
       return "O"
@@ -69,11 +69,11 @@ class TicTacToe
         false
     end
   end
-  
+
   def full?(board)
     !board.any? { |x| x == " " }
   end
-  
+
   def draw?(board)
     !(won?(board)) && (full?(board))
   end
@@ -82,9 +82,9 @@ class TicTacToe
       return true
     else
       return false
-    end 
-  end  
-  
+    end
+  end
+
   def winner(board)
     if winning_combo = won?(board)
       board[winning_combo.first]
@@ -103,4 +103,3 @@ class TicTacToe
     end
 end
 end
-
