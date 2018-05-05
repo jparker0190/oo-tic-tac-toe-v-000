@@ -62,7 +62,7 @@ end
   end
 
   def draw?
-    !(won?) && (full?(@board))
+    !(won?) && (full?)
   end
   def over?
     if full?(@board) || won?(@board) || draw?(@board)
