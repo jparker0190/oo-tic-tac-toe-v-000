@@ -65,7 +65,7 @@ end
     !(won?) && (full?)
   end
   def over?
-    if full?(@board) || won?(@board) || draw?(@board)
+    if full? || won? || draw?
       return true
     else
       return false
@@ -73,10 +73,14 @@ end
   end
 
   def winner
-    if winning_combo = won?(@board)
-      @board[winning_combo.first]
-    else
-      return nil
+    WIN_COMBINATIONS.detect do |win_combo|
+      if (@board[win_combo[0]]) == "X" && (@board[win_combo[1]]) == "X" && (@board[win_combo[2]]) == "X"
+        return "X"
+      elsif (@board[win_combo[0]]) == "O" && (@board[win_combo[1]]) == "O" && (@board[win_combo[2]]) == "O"
+        return "O"
+      else
+        nil
+      end
     end
   end
   def play
